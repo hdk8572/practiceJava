@@ -2,33 +2,34 @@ package access.ex2;
 
 public class ShoppingCart {
     private Item[] items = new Item[10];
-    private int itemCount;
+    int itemCount;
 
     public void addItem(Item item) {
         if (itemCount > items.length) {
-            System.out.println("장바구니가 가득 찼습니다.");
+            System.out.println("장바구니를 초과했습니다.");
             return;
         }
         items[itemCount] = item;
         itemCount++;
     }
 
-
     public void displayItems() {
-        System.out.println("장바구니 상품 출력");
+        System.out.println("장바구니 조회");
         for (int i = 0; i < itemCount; i++) {
             Item item = items[i];
-            System.out.println("상품명: " + item.getName() + ", 합계: " + item.getTotalPrice());
+            System.out.println("상품명: " + item.getName() + "가격: " + item.totalPrice());
         }
-        System.out.println("전체 가격 합: " + calcurateTotalPrice());
+        System.out.println("총 가격: " + calculateTotalPrice());
     }
 
-    public int calcurateTotalPrice() {
+    private int calculateTotalPrice() {
         int totalPrice = 0;
         for (int i = 0; i < itemCount; i++) {
             Item item = items[i];
-            totalPrice += item.getTotalPrice();
+            totalPrice += item.totalPrice();
         }
         return totalPrice;
     }
+
+
 }

@@ -15,7 +15,8 @@ public class Item {
         return name;
     }
 
-    public int getTotalPrice() {
+    public int totalPrice() {
         return price * quantity;
     }
+
 }
