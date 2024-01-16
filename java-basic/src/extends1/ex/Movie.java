@@ -2,23 +2,18 @@ package extends1.ex;
 
 public class Movie extends Item {
 
-    public String directior;
-    public String actor;
+    private String directior;
+    private String actor;
 
     public Movie(String name, int price, String directior, String actor) {
-        super.name = name;
-        super.price = price;
+        super(name, price);
         this.directior = directior;
         this.actor = actor;
     }
 
+    @Override
     public void print() {
-        System.out.println("이름:" + name + ", 가격:" + price);
+        super.print();
         System.out.println("- 감독:" + directior + ", 배우:" + actor);
     }
-
-    public int getPrice() {
-        return price;
-    }
-
 }
